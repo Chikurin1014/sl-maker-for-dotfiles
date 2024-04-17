@@ -3,8 +3,9 @@
 set -e
 
 SOURCE="${BASH_SOURCE:-$0}"
+SOURCE_DIR=$(dirname $SOURCE)
 
-source "scripts/define.sh" $@
+source "$SOURCE_DIR/scripts/define.sh" $@
 
 echo "==== Running staus ===="
 echo "Origin: $ORIGIN_ROOT/"
@@ -14,12 +15,12 @@ echo "======================="
 echo ""
 
 echo "==== Resolve destination files ===="
-source "scripts/resolve.sh" $@
+source "$SOURCE_DIR/scripts/resolve.sh" $@
 echo "==================================="
 echo ""
 
 echo "==== Link files ===="
-source "scripts/link.sh" $@
+source "$SOURCE_DIR/scripts/link.sh" $@
 echo "===================="
 echo ""
 

@@ -32,11 +32,11 @@ FILE_EXISTS=2
 
 # functions
 function check() {
-    source "functions/check.sh" $@
+    source "$SOURCE_DIR/functions/check.sh" $@
 }
 function get_dest() {
-    source "functions/get_dest.sh" $@
+    source "$SOURCE_DIR/functions/get_dest.sh" $@
 }
 function resolve() {
-    source "functions/resolve.sh" $@
+    source "$SOURCE_DIR/functions/resolve.sh" $@
 }
