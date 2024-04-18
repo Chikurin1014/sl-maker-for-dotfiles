@@ -2,7 +2,7 @@
 
 for file in $ORIGIN_FILES; do
     echo "Linking ${file#"$ORIGIN_ROOT/"}"
-    destination_path=$(get_dest $file)
+    destination_path=$(get_dest "$file")
     echo "  $file"
     echo "  -> $destination_path"
     if [[ $DRY_RUN = false ]]; then
