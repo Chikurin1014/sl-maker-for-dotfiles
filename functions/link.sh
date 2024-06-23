@@ -1,11 +1,13 @@
 #!/usr/bin/env bash
 
-for file in $ORIGIN_FILES; do
+function link() {
+    local -r file="$1"
+
     echo "Linking ${file#"$ORIGIN_ROOT/"}"
-    destination_path=$(get_dest "$file")
+    local -r destination_path=$(get_dest "$file")
     echo "  $file"
     echo "  -> $destination_path"
     if [[ $DRY_RUN = false ]]; then
         ln -s "$file" "$destination_path"
     fi
-done
+}

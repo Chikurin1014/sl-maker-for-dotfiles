@@ -15,12 +15,12 @@ echo "======================="
 echo ""
 
 echo "==== Resolve destination files ===="
-source "$SOURCE_DIR/scripts/resolve.sh" "$@"
+source "$SOURCE_DIR/scripts/resolve_files.sh"
 echo "==================================="
 echo ""
 
 echo "==== Link files ===="
-source "$SOURCE_DIR/scripts/link.sh" "$@"
+source "$SOURCE_DIR/scripts/link_files.sh"
 echo "===================="
 echo ""
 

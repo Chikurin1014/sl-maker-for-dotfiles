@@ -1,11 +1,15 @@
 #!/usr/bin/env bash
 
-for file in $ORIGIN_FILES; do
-    echo "Checking ${file#"$ORIGIN_ROOT/"}"
-    destination_path=$(get_dest "$file")
+function resolve() {
+    local -r file="$1"
 
-    mkdir -p "$(dirname "$destination_path")"
-    status=$(check "$destination_path")
+    echo "Checking ${file#"$ORIGIN_ROOT/"}"
+    local -r destination_path=$(get_dest "$file")
+
+    if [[ $DRY_RUN = false ]]; then
+        mkdir -p "$(dirname "$destination_path")"
+    fi
+    local -r status=$(check "$destination_path")
 
     if [[ $status = "$LINK_EXISTS" ]]; then
         echo "  Unlink $destination_path"
@@ -19,4 +23,4 @@ for file in $ORIGIN_FILES; do
             mv "$destination_path" "$destination_path.old"
         fi
     fi
-done
+}
