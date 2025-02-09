@@ -4,6 +4,7 @@ ORIGIN_ROOT=""
 DEST_ROOT="$HOME"
 DRY_RUN=false
 REPLACE_LIST=()
+IGNORE_LIST=()
 
 while getopts o:d:r:n flag; do
     case $flag in
@@ -18,6 +19,10 @@ while getopts o:d:r:n flag; do
         r)
             REPLACE_LIST+=("$OPTARG")
             ;;
+        i)
+            # this variable is used in other scripts
+            # shellcheck disable=SC2034
+            IGNORE_LIST+=("$OPTARG")
         n)
             # this variable is used in other scripts
             # shellcheck disable=SC2034
