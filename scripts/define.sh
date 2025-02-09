@@ -6,7 +6,7 @@ DRY_RUN=false
 REPLACE_LIST=()
 IGNORE_LIST=()
 
-while getopts o:d:r:n flag; do
+while getopts o:d:r:i:n flag; do
     case $flag in
         o)
             ORIGIN_ROOT="$(cd "$OPTARG" && pwd)"
@@ -20,9 +20,8 @@ while getopts o:d:r:n flag; do
             REPLACE_LIST+=("$OPTARG")
             ;;
         i)
-            # this variable is used in other scripts
-            # shellcheck disable=SC2034
             IGNORE_LIST+=("$OPTARG")
+            ;;
         n)
             # this variable is used in other scripts
             # shellcheck disable=SC2034
